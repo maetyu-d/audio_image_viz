@@ -1,0 +1,14 @@
+{
+  "versions": {
+    "yt-dlp": "2026.10.21",
+    "quickjs": "v0.17.0"
+  },
+  "sha256": {
+    "yt-dlp": "7a6fe71d7d680f1fb0ac18d4949873d77db2859e90017c0f44bd94b23be4ee40",
+    "qjs": "12ab782f780ad1654a617213bfc176ab248037557731b599e4275e529890b256"
+  },
+  "sources": [
+    "https://github.com/yt-dlp/yt-dlp/tree/2026.10.21",
+    "https://github.com/quickjs-ng/quickjs/tree/v0.17.0"
+  ]
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+<key>CFBundleExecutable</key><string>${MACOSX_BUNDLE_EXECUTABLE_NAME}</string>
+<key>CFBundleIdentifier</key><string>studio.audioimage</string>
+<key>CFBundleName</key><string>AudioImage</string>
+<key>CFBundleDisplayName</key><string>AudioImage</string>
+<key>CFBundlePackageType</key><string>APPL</string>
+<key>CFBundleVersion</key><string>1.21.0</string>
+<key>CFBundleShortVersionString</key><string>1.21.0</string>
+<key>NSHighResolutionCapable</key><true/>
+<key>NSMicrophoneUsageDescription</key><string>Live input turns audio from your selected input device into video feedback. Input is never played through the speakers or recorded.</string>
+</dict></plist>

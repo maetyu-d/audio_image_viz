@@ -1,0 +1,15 @@
+build*/
+*.app/
+*.zip
+.DS_Store
+captures/
+AudioImage captures/
+/preview.png
+__pycache__/
+*.pyc
+
+# Fetch pinned macOS playback helpers with scripts/fetch_youtube_tools.py.
+vendor/youtube/yt-dlp
+vendor/youtube/qjs
+vendor/youtube/qjs-arm64
+vendor/youtube/qjs-x86_64
