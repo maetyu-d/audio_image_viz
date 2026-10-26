@@ -18,29 +18,29 @@ The image keeps moving while you adjust it.
 
 ## Screenshots
 
-**1. Chromatic Tide**
+**Mode 1**
 
-![Chromatic Tide — AudioImage mode 1](docs/screenshots/01-chromatic-tide.png)
+![AudioImage mode 1](docs/screenshots/01-chromatic-tide.png)
 
-**2. Sync Collapse**
+**Mode 2**
 
-![Sync Collapse — AudioImage mode 2](docs/screenshots/02-sync-collapse.png)
+![AudioImage mode 2](docs/screenshots/02-sync-collapse.png)
 
-**3. Chroma Cascade**
+**Mode 3**
 
-![Chroma Cascade — AudioImage mode 3](docs/screenshots/03-chroma-cascade.png)
+![AudioImage mode 3](docs/screenshots/03-chroma-cascade.png)
 
-**4. Vector Ghost**
+**Mode 4**
 
-![Vector Ghost — AudioImage mode 4](docs/screenshots/04-vector-ghost.png)
+![AudioImage mode 4](docs/screenshots/04-vector-ghost.png)
 
-**5. Cross Modulation**
+**Mode 5**
 
-![Cross Modulation — AudioImage mode 5](docs/screenshots/05-cross-modulation.png)
+![AudioImage mode 5](docs/screenshots/05-cross-modulation.png)
 
-**6. Event Horizon**
+**Mode 6**
 
-![Event Horizon — AudioImage mode 6](docs/screenshots/06-event-horizon.png)
+![AudioImage mode 6](docs/screenshots/06-event-horizon.png)
 
 ## Audio
 
