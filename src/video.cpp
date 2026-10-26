@@ -152,7 +152,7 @@ bool Video::render(const Signal& signal,Patch& patch,float dt) {
     Vector2 centre{resolution.x*.5f+std::cos(hit[2])*.28f*resolution.y,
       resolution.y*(.5f-std::sin(hit[2])*.21f)};
     auto drawEvent=[&](int mode,float weight) {
-      // Sync Collapse's percussion is emitted by its tubes into feedback.
+      // Mode 2 percussion excites its signal conduits inside feedback.
       if(weight<=.0001f||mode==1) return;
       BeginShaderMode(percussion);tex(percussion,"flowTexture",flow.texture);
       vec(percussion,"singleEvent",hit);vec(percussion,"singleColour",hitColours[i]);

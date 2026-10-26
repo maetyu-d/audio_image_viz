@@ -138,7 +138,7 @@ std::string readSpotifyPlaylist(const std::string& url,const std::function<bool(
     NSURLSessionConfiguration* configuration=[NSURLSessionConfiguration ephemeralSessionConfiguration];
     configuration.timeoutIntervalForRequest=20;configuration.timeoutIntervalForResource=30;
     configuration.requestCachePolicy=NSURLRequestReloadIgnoringLocalCacheData;
-    configuration.HTTPAdditionalHeaders=@{@"Accept":@"text/html",@"User-Agent":@"AudioImage/1.21.0"};
+    configuration.HTTPAdditionalHeaders=@{@"Accept":@"text/html",@"User-Agent":@"AudioImage/1.21.1"};
     NSURLSession* session=[NSURLSession sessionWithConfiguration:configuration];
     struct Response {std::mutex mutex;std::condition_variable wake;bool done=false;std::string html,error;};
     auto response=std::make_shared<Response>();

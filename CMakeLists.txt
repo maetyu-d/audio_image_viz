@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(AudioImage VERSION 1.21.0 LANGUAGES C CXX)
+project(AudioImage VERSION 1.21.1 LANGUAGES C CXX)
 if(APPLE)
   enable_language(OBJC OBJCXX)
   set(CMAKE_OBJCXX_STANDARD 17)
@@ -34,8 +34,8 @@ if(APPLE)
     MACOSX_BUNDLE_INFO_PLIST "${CMAKE_CURRENT_SOURCE_DIR}/Info.plist.in"
     MACOSX_BUNDLE_BUNDLE_NAME "AudioImage"
     MACOSX_BUNDLE_GUI_IDENTIFIER "studio.audioimage"
-    MACOSX_BUNDLE_BUNDLE_VERSION "1.21.0"
-    MACOSX_BUNDLE_SHORT_VERSION_STRING "1.21.0")
+    MACOSX_BUNDLE_BUNDLE_VERSION "1.21.1"
+    MACOSX_BUNDLE_SHORT_VERSION_STRING "1.21.1")
   target_link_libraries(AudioImage PRIVATE audioimage_streaming "-framework AudioToolbox" "-framework AppKit" "-framework UniformTypeIdentifiers")
   if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/vendor/youtube/yt-dlp" OR NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/vendor/youtube/qjs")
     message(FATAL_ERROR "Run python3 scripts/fetch_youtube_tools.py before building the macOS app.")

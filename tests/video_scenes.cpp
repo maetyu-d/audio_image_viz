@@ -53,7 +53,7 @@ av::Signal soundAt(int frame) {
 }
 int main(int argc,char** argv) {
   using namespace av;SetTraceLogLevel(LOG_WARNING);SetConfigFlags(FLAG_WINDOW_HIDDEN|FLAG_WINDOW_HIGHDPI);
-  InitWindow(960,600,"AudioImage / scene identity check");SetTargetFPS(0);if(!IsWindowReady()) return 1;
+  InitWindow(960,600,"AudioImage / mode identity check");SetTargetFPS(0);if(!IsWindowReady()) return 1;
   std::filesystem::path folder=argc>1?argv[1]:"captures/scenes";std::filesystem::create_directories(folder);
   std::vector<Picture> pictures;bool okay=true;
   for(int scene=0;scene<sceneCount;scene++) {
@@ -78,10 +78,10 @@ int main(int argc,char** argv) {
   for(int f=0;f<240;f++) video.render(soundAt(f),patch,1.f/60);
   patch.previousScene=0;patch.scene=3;patch.transition=0;
   for(int f=240;f<480;f++) video.render(soundAt(f),patch,1.f/60);
-  video.capture((folder/"live-tide-to-vector.png").string());auto switched=inspect(video);
+  video.capture((folder/"live-mode-1-to-4.png").string());auto switched=inspect(video);
   okay=okay&&switched.dark>.25&&patch.transition==1;
-  std::cout<<"Live switch to Vector Ghost: dark area="<<switched.dark*100<<"%\n";
+  std::cout<<"Live switch to Mode 4: dark area="<<switched.dark*100<<"%\n";
   video.shutdown();CloseWindow();
-  std::cout<<(okay?"PASS":"FAIL")<<": distinct scene colour and spatial structure, negative space, and live feedback morph.\n";
+  std::cout<<(okay?"PASS":"FAIL")<<": distinct mode colour and spatial structure, negative space, and live feedback morph.\n";
   return okay?0:1;
 }

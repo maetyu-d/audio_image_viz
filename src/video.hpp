@@ -6,7 +6,7 @@
 #include <string>
 namespace av {
 constexpr int sceneCount=6;
-inline constexpr const char* scenes[]={"CHROMATIC TIDE","SYNC COLLAPSE","CHROMA CASCADE","VECTOR GHOST","CROSS MODULATION","EVENT HORIZON"};
+inline constexpr const char* scenes[]={"Mode 1","Mode 2","Mode 3","Mode 4","Mode 5","Mode 6"};
 inline constexpr const char* labels[]={"FEEDBACK","TIME SMEAR","WARP","SYMMETRY","COLOUR PHASE","DETAIL","AUDIO REACTION","EXPOSURE"};
 struct Patch {
   std::array<float,8> values{.78f,.48f,.58f,.42f,.12f,.62f,.82f,.52f};

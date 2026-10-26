@@ -6,8 +6,8 @@
 <key>CFBundleName</key><string>AudioImage</string>
 <key>CFBundleDisplayName</key><string>AudioImage</string>
 <key>CFBundlePackageType</key><string>APPL</string>
-<key>CFBundleVersion</key><string>1.21.0</string>
-<key>CFBundleShortVersionString</key><string>1.21.0</string>
+<key>CFBundleVersion</key><string>1.21.1</string>
+<key>CFBundleShortVersionString</key><string>1.21.1</string>
 <key>NSHighResolutionCapable</key><true/>
 <key>NSMicrophoneUsageDescription</key><string>Live input turns audio from your selected input device into video feedback. Input is never played through the speakers or recorded.</string>
 </dict></plist>

@@ -99,13 +99,13 @@ struct Console {
     DrawRectangle(0,0,int(width),int(height),{10,16,20,250});DrawRectangleLinesEx({0,0,width,height},1,stroke);
     text("AudioImage",16,16,14);
     if(button({276,9,44,26},"HIDE",false,"C / hide controls")) {visible=false;drag=-1;}
-    text(TextFormat("%02d",patch.scene+1),16,51,12,lime);text(scenes[patch.scene],44,51,12);
+    text(scenes[patch.scene],16,51,12,lime);
     for(int i=0;i<sceneCount;i++) {
       if(button({16.f+i*38,76,34,26},TextFormat("%d",i+1),i==patch.scene,scenes[i])) {
         if(i!=patch.scene) scene(patch,i);patch.automatic=false;
       }
     }
-    if(button({248,76,72,26},"AUTO",patch.automatic,"A / morph scenes every 48 seconds")) patch.automatic=!patch.automatic;
+    if(button({248,76,72,26},"AUTO",patch.automatic,"A / morph modes every 48 seconds")) patch.automatic=!patch.automatic;
     if(button({16,116,52,28},"SYNTH",a.source==Source::Synth&&!youtube.active,"D / internal soundtrack")) synthRequested=true;
     if(button({72,116,43,28},"LIVE",a.source==Source::Input&&!youtube.active,"I / default audio input")) liveRequested=true;
     if(button({119,116,43,28},"FILE",a.source==Source::File&&!youtube.active,"Open or drop WAV / MP3 / FLAC / OGG / M4A / AIFF")) {
@@ -122,7 +122,7 @@ struct Console {
       auto clock=TextFormat("%d:%02d / %d:%02d",int(a.position)/60,int(a.position)%60,int(a.duration)/60,int(a.duration)%60);
       rightText(youtubePlaying?(youtube.busy?"PREPARING...":std::to_string(youtube.index+1)+"/"+std::to_string(youtube.count)+"  "+clock):clock,320,153,youtubePlaying?8:9,dim);
       DrawRectangle(16,169,304,2,stroke);DrawRectangle(16,169,int(304*std::clamp(a.position/a.duration,0.f,1.f)),2,dim);
-    } else text(a.source==Source::Synth?"Original 128 BPM synth":a.source==Source::Input?"Default input / no monitoring":"Ambient synthesis",16,153,10,dim);
+    } else text(a.source==Source::Synth?"Internal 128 BPM synth":a.source==Source::Input?"Default input / no monitoring":"Ambient synthesis",16,153,10,dim);
     if(youtubePlaying) {
       if(button({16,182,28,26},"<",false,", / previous playlist track")) trackStep=-1;
       if(button({49,182,56,26},paused?"PLAY":"PAUSE",paused,"Space / pause picture and playback")) paused=!paused;
@@ -165,7 +165,7 @@ struct Console {
         if(hover({16,393,244,24})) hint="Open the original playlist";
         if(hit({16,393,244,24})) OpenURL(youtube.url.c_str());
         if(!youtube.audioURL.empty()&&button({266,393,54,24},"AUDIO",false,"Open the YouTube recording being played")) OpenURL(youtube.audioURL.c_str());
-      } else clipped("SPACE pause / 1-6 scenes / R mutate",16,401,9,304,dim);
+      } else clipped("SPACE pause / 1-6 modes / R mutate",16,401,9,304,dim);
       text(youtube.active?(youtube.spotify?"Spotify order / YouTube audio":", previous / . next / Y playlist"):"TAB select / [ ] tune / SHIFT fine",16,422,9,dim);
       wrapped(!notice.empty()?notice:youtube.active?(!youtube.error.empty()?youtube.error:youtube.status):a.status,16,436,9,304);
     }
@@ -204,9 +204,9 @@ int main(int argc,char** argv) {
     else if(arg=="--file"&&i+1<argc) filePath=argv[++i];
     else if((arg=="--youtube"||arg=="--spotify"||arg=="--playlist")&&i+1<argc) playlistURL=argv[++i];
     else if(arg=="--help") {std::cout<<"AudioImage / C++ audio and video feedback instrument\n"
-      <<"C controls (hidden at startup) | Space pause | F fullscreen | Esc quit\n"
-      <<"1-6 scenes | Left/Right scenes | A auto | R mutate | Backspace clear\n"
-      <<"I live input | D internal soundtrack | M mute | -/+ volume | S snapshot\n"
+      <<"C controls (hidden at startup) | Space pause | F fullscreen | Esc hide controls / quit\n"
+      <<"1-6 modes | Left/Right modes | A auto | R mutate | Backspace clear\n"
+      <<"I live input | D internal soundtrack | M mute | -/= volume | S snapshot\n"
       <<"Y YouTube playlist | P Spotify playlist (YouTube matches) | , previous / . next\n"
       <<"Drop WAV/MP3/FLAC/OGG/M4A/AIFF to play and visualise. Select an input/loopback\ndevice in macOS Sound for live input. No input monitoring.\n"
       <<"--windowed --file PATH --playlist URL (--youtube / --spotify also work)\n"
@@ -351,14 +351,14 @@ int main(int argc,char** argv) {
         if(previousImage.size()==size_t(image.width*image.height)) difference+=std::abs(int(pixels[i].r)-previousImage[i].r)+std::abs(int(pixels[i].g)-previousImage[i].g)+std::abs(int(pixels[i].b)-previousImage[i].b);}
       mean/=image.width*image.height;variation/=image.width*image.height;difference/=image.width*image.height*3;
       if(frame%100==90) {sceneMeans[patch.scene]=mean;sceneDifferences[patch.scene]=difference;
-        if(mean<2||mean>245||variation<2||difference<.1) {std::cerr<<"Invalid or static scene "<<patch.scene+1<<" mean="<<mean<<" colour="<<variation<<" motion="<<difference<<"\n";okay=false;}}
+        if(mean<2||mean>245||variation<2||difference<.1) {std::cerr<<"Invalid or static mode "<<patch.scene+1<<" mean="<<mean<<" colour="<<variation<<" motion="<<difference<<"\n";okay=false;}}
       previousImage.assign(pixels,pixels+image.width*image.height);UnloadImageColors(pixels);UnloadImage(image);
     }
     frame++;if(frames>0&&frame>=frames) break;
   }
   if(!screenshot.empty()) video.capture(screenshot);
   if(selfCheck) {for(int i=0;i<6;i++) std::cout<<scenes[i]<<" brightness="<<sceneMeans[i]<<" motion="<<sceneDifferences[i]<<"\n";
-    std::cout<<(okay?"PASS":"FAIL")<<": six scenes, live FFT, feedback animation, target resize, clean output.\n";}
+    std::cout<<(okay?"PASS":"FAIL")<<": six modes, live FFT, feedback animation, target resize, clean output.\n";}
   std::cout<<"Rendered "<<frame<<" frames; controls "<<(console.visible?"visible":"hidden")<<"; audio samples "<<audio.ring.count()
     <<"; RMS "<<analyzer.current().rms<<"; bands "<<analyzer.current().bass<<","<<analyzer.current().mid<<","<<analyzer.current().high
     <<"; attacks "<<analyzer.current().onsetCount[0]<<","<<analyzer.current().onsetCount[1]<<","<<analyzer.current().onsetCount[2]
