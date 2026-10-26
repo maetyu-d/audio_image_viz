@@ -6,8 +6,6 @@ A C++ audio and video feedback instrument.
 unzip it, and open **AudioImage.app**. From a built source checkout, use
 **Launch AudioImage.command**.
 
-![AudioImage's six video feedback scenes](docs/preview.png)
-
 It starts fullscreen, with an evolving image and its internal 128 BPM
 procedural techno soundtrack. There is no title screen, gameplay, reticle, or HUD.
 
@@ -17,6 +15,32 @@ audio source, transport, volume and all eight visual sliders together. **More**
 switches to meters, shortcuts, fullscreen and snapshot actions; **Patch** returns
 to the sliders without changing the panel size. Hover a control for a short hint.
 The image keeps moving while you adjust it.
+
+## Screenshots
+
+**1. Chromatic Tide**
+
+![Chromatic Tide — AudioImage mode 1](docs/screenshots/01-chromatic-tide.png)
+
+**2. Sync Collapse**
+
+![Sync Collapse — AudioImage mode 2](docs/screenshots/02-sync-collapse.png)
+
+**3. Chroma Cascade**
+
+![Chroma Cascade — AudioImage mode 3](docs/screenshots/03-chroma-cascade.png)
+
+**4. Vector Ghost**
+
+![Vector Ghost — AudioImage mode 4](docs/screenshots/04-vector-ghost.png)
+
+**5. Cross Modulation**
+
+![Cross Modulation — AudioImage mode 5](docs/screenshots/05-cross-modulation.png)
+
+**6. Event Horizon**
+
+![Event Horizon — AudioImage mode 6](docs/screenshots/06-event-horizon.png)
 
 ## Audio
 
